@@ -1,0 +1,28 @@
+name: Feature request
+description: Propose a change that fits the screen-off, system-awake goal
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What user problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behaviour
+    validations:
+      required: true
+  - type: dropdown
+    id: session
+    attributes:
+      label: Desktop session
+      options:
+        - GNOME on X11
+        - GNOME on Wayland
+        - Other
+    validations:
+      required: true
