@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
-Name=Sleepless Ubuntu
+Name=Never Sleep for Ubuntu
 Comment=Keep this laptop awake with the display off
-Exec=sleepless-ubuntu-tray
+Exec=never-sleep-tray
 Icon=weather-clear-night-symbolic
 Terminal=false
 Categories=Utility;

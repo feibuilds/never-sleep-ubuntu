@@ -36,5 +36,5 @@ body:
     id: doctor
     attributes:
       label: Doctor output
-      description: Paste the output of `sleepless-ubuntu doctor`. Remove anything sensitive first.
+      description: Paste the output of `never-sleep doctor`. Remove anything sensitive first.
       render: shell

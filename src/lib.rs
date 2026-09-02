@@ -103,7 +103,7 @@ pub fn inhibitor_args(exe: &Path, duration: &str) -> Vec<String> {
     vec![
         "--what=idle:sleep:handle-lid-switch".into(),
         "--mode=block".into(),
-        "--who=Sleepless Ubuntu".into(),
+        "--who=Never Sleep for Ubuntu".into(),
         "--why=Keep remote work running with the display off".into(),
         exe.display().to_string(),
         "daemon".into(),
@@ -124,14 +124,14 @@ pub fn command_exists(name: &str) -> bool {
 }
 
 pub fn data_dir() -> PathBuf {
-    if let Some(path) = std::env::var_os("SLEEPLESS_UBUNTU_DATA_DIR") {
+    if let Some(path) = std::env::var_os("NEVER_SLEEP_DATA_DIR") {
         return path.into();
     }
     if let Some(path) = std::env::var_os("XDG_STATE_HOME") {
-        return PathBuf::from(path).join("sleepless-ubuntu");
+        return PathBuf::from(path).join("never-sleep");
     }
     PathBuf::from(std::env::var_os("HOME").unwrap_or_else(|| ".".into()))
-        .join(".local/state/sleepless-ubuntu")
+        .join(".local/state/never-sleep")
 }
 
 #[cfg(test)]
@@ -203,15 +203,15 @@ mod tests {
 
     #[test]
     fn inhibitor_wraps_daemon_without_persistent_power_changes() {
-        let args = inhibitor_args(Path::new("/opt/sleepless-ubuntu"), "8h");
+        let args = inhibitor_args(Path::new("/opt/never-sleep"), "8h");
         assert_eq!(
             args,
             [
                 "--what=idle:sleep:handle-lid-switch",
                 "--mode=block",
-                "--who=Sleepless Ubuntu",
+                "--who=Never Sleep for Ubuntu",
                 "--why=Keep remote work running with the display off",
-                "/opt/sleepless-ubuntu",
+                "/opt/never-sleep",
                 "daemon",
                 "--for",
                 "8h",

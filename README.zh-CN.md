@@ -1,8 +1,8 @@
-# Sleepless Ubuntu
+# Never Sleep for Ubuntu
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-[![CI](https://github.com/pandadolphin/sleepless-ubuntu/actions/workflows/ci.yml/badge.svg)](https://github.com/pandadolphin/sleepless-ubuntu/actions/workflows/ci.yml)
+[![CI](https://github.com/pandadolphin/never-sleep-ubuntu/actions/workflows/ci.yml/badge.svg)](https://github.com/pandadolphin/never-sleep-ubuntu/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 让 Ubuntu laptop 在 **display 关闭时仍保持 awake**。这是参考 [mac-never-sleep](https://github.com/xyz-ai-app/mac-never-sleep) 开发的 Ubuntu/GNOME X11 版本，并已在 Ubuntu 22.04 上测试。
@@ -32,10 +32,10 @@ sudo apt install x11-utils libnotify-bin python3-gi gir1.2-ayatanaappindicator3-
 
 ```bash
 cargo build --release
-./target/release/sleepless-ubuntu doctor
-./target/release/sleepless-ubuntu on --for 8h
-./target/release/sleepless-ubuntu status --json
-./target/release/sleepless-ubuntu off
+./target/release/never-sleep doctor
+./target/release/never-sleep on --for 8h
+./target/release/never-sleep status --json
+./target/release/never-sleep off
 ```
 
 Duration 支持 `indefinite`、小时（`8h`）、分钟（`30m`）和本地时间点（`until=08:00`）。
@@ -57,14 +57,14 @@ Duration 支持 `indefinite`、小时（`8h`）、分钟（`30m`）和本地时�
 Command 和 JSON vocabulary 与参考项目保持对应：
 
 ```bash
-sleepless-ubuntu on --for 8h
-sleepless-ubuntu status --json
-sleepless-ubuntu off
+never-sleep on --for 8h
+never-sleep status --json
+never-sleep off
 ```
 
 顶层 `status` object 中的稳定字段为 `active`、`display`、`lid`、`on_ac`、`battery`、`remaining_secs`、`user_present`、`elapsed_secs`、`stop_reason`、`stop_reason_code`、`screen_off_enabled` 和 `lid_awake_enabled`。
 
-Runtime state 默认位于 `$XDG_STATE_HOME/sleepless-ubuntu`；未设置时使用 `~/.local/state/sleepless-ubuntu`。测试可用 `SLEEPLESS_UBUNTU_DATA_DIR` override。
+Runtime state 默认位于 `$XDG_STATE_HOME/never-sleep`；未设置时使用 `~/.local/state/never-sleep`。测试可用 `NEVER_SLEEP_DATA_DIR` override。
 
 ## 工作原理
 

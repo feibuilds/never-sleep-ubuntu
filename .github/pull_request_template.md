@@ -1,6 +1,6 @@
 ## Behaviour
 
-Describe the user-visible change and why it belongs in Sleepless Ubuntu.
+Describe the user-visible change and why it belongs in Never Sleep for Ubuntu.
 
 ## Evidence
 

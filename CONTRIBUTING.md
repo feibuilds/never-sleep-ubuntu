@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping improve Sleepless Ubuntu.
+Thanks for helping improve Never Sleep for Ubuntu.
 
 ## Scope
 
@@ -9,7 +9,7 @@ The product goal is deliberately narrow: keep an Ubuntu laptop awake with the di
 1. Display sleep and system sleep prevention remain separate.
 2. Local keyboard or mouse activity retains control of the display.
 3. Power inhibition is process-scoped. Do not rewrite GNOME settings or `logind.conf`.
-4. `sleepless-ubuntu on --for 8h` and existing JSON field names remain stable.
+4. `never-sleep on --for 8h` and existing JSON field names remain stable.
 5. Closed-lid operation must be described as hardware- and firmware-dependent.
 
 ## Development setup
@@ -31,7 +31,7 @@ cargo clippy --all-targets -- -D warnings
 cargo test
 python3 -m py_compile scripts/tray.py
 shellcheck scripts/*.sh
-desktop-file-validate packaging/sleepless-ubuntu.desktop
+desktop-file-validate packaging/never-sleep.desktop
 ```
 
 Keep pull requests focused. Explain the user-visible behaviour, the test that locks it, and any Ubuntu/session types you actually tested. Do not claim Wayland or closed-lid behaviour without real hardware evidence.

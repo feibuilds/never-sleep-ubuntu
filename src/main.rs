@@ -9,11 +9,11 @@ use std::time::{Duration, Instant};
 
 use chrono::{Local, LocalResult, TimeZone};
 use clap::{Parser, Subcommand};
-use serde::{Deserialize, Serialize};
-use sleepless_ubuntu::{
+use never_sleep_ubuntu::{
     command_exists, data_dir, inhibitor_args, parse_duration, parse_gnome_idle_ms,
     read_power_supply, should_sleep_display, stop_signal_args, DisplayPolicy, DurationSpec,
 };
+use serde::{Deserialize, Serialize};
 
 const DISPLAY_OFF_DELAY_MS: u64 = 1_500;
 const USER_IDLE_RESLEEP_MS: u64 = 45_000;
@@ -21,7 +21,7 @@ const BATTERY_FLOOR: u8 = 20;
 
 #[derive(Debug, Parser)]
 #[command(
-    name = "sleepless-ubuntu",
+    name = "never-sleep",
     version,
     about = "Keep an Ubuntu laptop awake with the display off"
 )]
@@ -208,7 +208,7 @@ fn start(duration: &str, json: bool) -> Result<(), String> {
     if json {
         print_json_response(true, None);
     } else {
-        println!("Sleepless Ubuntu is on. The display will turn off in about 1.5 seconds.");
+        println!("Never Sleep for Ubuntu is on. The display will turn off in about 1.5 seconds.");
     }
     Ok(())
 }
@@ -232,7 +232,7 @@ fn stop(json: bool) -> Result<(), String> {
     if json {
         print_json_response(true, None);
     } else {
-        println!("Sleepless Ubuntu is off. Normal Ubuntu power policy is in control.");
+        println!("Never Sleep for Ubuntu is off. Normal Ubuntu power policy is in control.");
     }
     Ok(())
 }
@@ -384,7 +384,7 @@ fn gnome_idle_ms() -> Option<u64> {
 }
 
 fn sleep_display() -> Result<(), String> {
-    if std::env::var_os("SLEEPLESS_UBUNTU_NO_DISPLAY_OFF").is_some() {
+    if std::env::var_os("NEVER_SLEEP_NO_DISPLAY_OFF").is_some() {
         return Ok(());
     }
     let status = Command::new("xset")
@@ -507,7 +507,7 @@ fn print_status(json: bool) {
 }
 
 fn doctor() {
-    println!("Sleepless Ubuntu doctor");
+    println!("Never Sleep for Ubuntu doctor");
     println!(
         "session: {}",
         if live_session().is_some() {
@@ -550,11 +550,11 @@ fn doctor() {
 }
 
 fn notify(title: &str, body: &str) {
-    if std::env::var_os("SLEEPLESS_UBUNTU_NO_NOTIFY").is_some() {
+    if std::env::var_os("NEVER_SLEEP_NO_NOTIFY").is_some() {
         return;
     }
     let _ = Command::new("notify-send")
-        .args(["--app-name=Sleepless Ubuntu", title, body])
+        .args(["--app-name=Never Sleep for Ubuntu", title, body])
         .status();
 }
 

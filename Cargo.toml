@@ -1,12 +1,13 @@
 [package]
-name = "sleepless-ubuntu"
+name = "never-sleep-ubuntu"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
 description = "Keep an Ubuntu laptop awake with the display off"
+default-run = "never-sleep"
 authors = ["Phil Liu <phil@pnrcreations.com>"]
-repository = "https://github.com/pandadolphin/sleepless-ubuntu"
-homepage = "https://github.com/pandadolphin/sleepless-ubuntu"
+repository = "https://github.com/pandadolphin/never-sleep-ubuntu"
+homepage = "https://github.com/pandadolphin/never-sleep-ubuntu"
 readme = "README.md"
 rust-version = "1.88"
 keywords = ["ubuntu", "linux", "sleep", "dpms", "systemd"]
@@ -14,6 +15,10 @@ categories = ["command-line-utilities", "os::linux-apis"]
 exclude = ["docs/**", ".github/**"]
 
 [workspace]
+
+[[bin]]
+name = "never-sleep"
+path = "src/main.rs"
 
 [dependencies]
 chrono = { version = "0.4", default-features = false, features = ["clock", "std"] }

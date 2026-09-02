@@ -42,7 +42,7 @@ jobs:
         run: |
           python3 -m py_compile scripts/tray.py
           shellcheck scripts/*.sh
-          desktop-file-validate packaging/sleepless-ubuntu.desktop
+          desktop-file-validate packaging/never-sleep.desktop
 
       - name: Validate source package
         run: cargo package --locked

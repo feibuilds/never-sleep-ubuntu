@@ -1,8 +1,8 @@
-# Sleepless Ubuntu
+# Never Sleep for Ubuntu
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-[![CI](https://github.com/pandadolphin/sleepless-ubuntu/actions/workflows/ci.yml/badge.svg)](https://github.com/pandadolphin/sleepless-ubuntu/actions/workflows/ci.yml)
+[![CI](https://github.com/pandadolphin/never-sleep-ubuntu/actions/workflows/ci.yml/badge.svg)](https://github.com/pandadolphin/never-sleep-ubuntu/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Keep an Ubuntu laptop **awake with the display off**. This is an Ubuntu/GNOME X11 counterpart to [mac-never-sleep](https://github.com/xyz-ai-app/mac-never-sleep), developed and tested on Ubuntu 22.04.
@@ -32,10 +32,10 @@ sudo apt install x11-utils libnotify-bin python3-gi gir1.2-ayatanaappindicator3-
 
 ```bash
 cargo build --release
-./target/release/sleepless-ubuntu doctor
-./target/release/sleepless-ubuntu on --for 8h
-./target/release/sleepless-ubuntu status --json
-./target/release/sleepless-ubuntu off
+./target/release/never-sleep doctor
+./target/release/never-sleep on --for 8h
+./target/release/never-sleep status --json
+./target/release/never-sleep off
 ```
 
 Durations are `indefinite`, hours (`8h`), minutes (`30m`), or local wall clock (`until=08:00`).
@@ -57,14 +57,14 @@ The installer places two executables in `~/.local/bin`, adds one GNOME autostart
 The command and JSON vocabulary follows the reference project:
 
 ```bash
-sleepless-ubuntu on --for 8h
-sleepless-ubuntu status --json
-sleepless-ubuntu off
+never-sleep on --for 8h
+never-sleep status --json
+never-sleep off
 ```
 
 Stable status fields are `active`, `display`, `lid`, `on_ac`, `battery`, `remaining_secs`, `user_present`, `elapsed_secs`, `stop_reason`, `stop_reason_code`, `screen_off_enabled`, and `lid_awake_enabled` inside the top-level `status` object.
 
-Runtime state is stored under `$XDG_STATE_HOME/sleepless-ubuntu`, or `~/.local/state/sleepless-ubuntu` when `XDG_STATE_HOME` is unset. `SLEEPLESS_UBUNTU_DATA_DIR` overrides it for testing.
+Runtime state is stored under `$XDG_STATE_HOME/never-sleep`, or `~/.local/state/never-sleep` when `XDG_STATE_HOME` is unset. `NEVER_SLEEP_DATA_DIR` overrides it for testing.
 
 ## How it works
 

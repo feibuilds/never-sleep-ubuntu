@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Small GNOME tray controller for the sleepless-ubuntu daemon."""
+"""Small GNOME tray controller for the Never Sleep for Ubuntu daemon."""
 
 import fcntl
 import os
@@ -13,10 +13,8 @@ gi.require_version("AyatanaAppIndicator3", "0.1")
 from gi.repository import AyatanaAppIndicator3, GLib, Gtk  # noqa: E402
 
 
-APP_ID = "sleepless-ubuntu"
-BINARY = shutil.which("sleepless-ubuntu") or os.path.expanduser(
-    "~/.local/bin/sleepless-ubuntu"
-)
+APP_ID = "never-sleep"
+BINARY = shutil.which("never-sleep") or os.path.expanduser("~/.local/bin/never-sleep")
 LOCK_HANDLE = None
 
 
@@ -24,7 +22,7 @@ def acquire_instance_lock():
     """Keep one indicator per login session, including repeated installs."""
     global LOCK_HANDLE
     runtime_dir = os.environ.get("XDG_RUNTIME_DIR", f"/run/user/{os.getuid()}")
-    lock_path = os.path.join(runtime_dir, "sleepless-ubuntu-tray.lock")
+    lock_path = os.path.join(runtime_dir, "never-sleep-tray.lock")
     LOCK_HANDLE = open(lock_path, "w", encoding="utf-8")
     try:
         fcntl.flock(LOCK_HANDLE, fcntl.LOCK_EX | fcntl.LOCK_NB)
@@ -79,7 +77,7 @@ class Tray:
         self.toggle_item.set_label("End Session" if active else "Start Screen-Off Session")
         self.indicator.set_icon_full(
             "weather-clear-night-symbolic" if active else "weather-clear-symbolic",
-            "Sleepless Ubuntu on" if active else "Sleepless Ubuntu off",
+            "Never Sleep for Ubuntu on" if active else "Never Sleep for Ubuntu off",
         )
         return True
 
@@ -92,7 +90,7 @@ class Tray:
             [BINARY, "doctor"], capture_output=True, text=True, check=False
         )
         subprocess.Popen(
-            ["zenity", "--info", "--title=Sleepless Ubuntu", f"--text={result.stdout}"],
+            ["zenity", "--info", "--title=Never Sleep for Ubuntu", f"--text={result.stdout}"],
             start_new_session=True,
         )
 
