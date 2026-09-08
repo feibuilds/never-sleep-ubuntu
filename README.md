@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-[![CI](https://github.com/pandadolphin/never-sleep-ubuntu/actions/workflows/ci.yml/badge.svg)](https://github.com/pandadolphin/never-sleep-ubuntu/actions/workflows/ci.yml)
+[![CI](https://github.com/feibuilds/never-sleep-ubuntu/actions/workflows/ci.yml/badge.svg)](https://github.com/feibuilds/never-sleep-ubuntu/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Keep an Ubuntu laptop **awake with the display off**. This is an Ubuntu/GNOME X11 counterpart to [mac-never-sleep](https://github.com/xyz-ai-app/mac-never-sleep), developed and tested on Ubuntu 22.04.

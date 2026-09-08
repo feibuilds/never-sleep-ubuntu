@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-[![CI](https://github.com/pandadolphin/never-sleep-ubuntu/actions/workflows/ci.yml/badge.svg)](https://github.com/pandadolphin/never-sleep-ubuntu/actions/workflows/ci.yml)
+[![CI](https://github.com/feibuilds/never-sleep-ubuntu/actions/workflows/ci.yml/badge.svg)](https://github.com/feibuilds/never-sleep-ubuntu/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 让 Ubuntu laptop 在 **display 关闭时仍保持 awake**。这是参考 [mac-never-sleep](https://github.com/xyz-ai-app/mac-never-sleep) 开发的 Ubuntu/GNOME X11 版本，并已在 Ubuntu 22.04 上测试。

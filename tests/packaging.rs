@@ -24,8 +24,8 @@ fn desktop_entry_uses_the_never_sleep_product_name() {
 #[test]
 fn cargo_metadata_points_at_the_renamed_github_repo() {
     let manifest = include_str!("../Cargo.toml");
-    assert!(manifest.contains("repository = \"https://github.com/pandadolphin/never-sleep-ubuntu\""));
-    assert!(manifest.contains("homepage = \"https://github.com/pandadolphin/never-sleep-ubuntu\""));
+    assert!(manifest.contains("repository = \"https://github.com/feibuilds/never-sleep-ubuntu\""));
+    assert!(manifest.contains("homepage = \"https://github.com/feibuilds/never-sleep-ubuntu\""));
     assert!(!manifest.contains("sleepless-ubuntu"));
 }
 

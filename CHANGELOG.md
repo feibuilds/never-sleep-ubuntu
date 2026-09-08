@@ -19,4 +19,4 @@ All notable changes to this project will be documented in this file. The format 
 - GNOME AppIndicator menu with current-session launch and login autostart.
 - English and Simplified Chinese documentation.
 
-[Unreleased]: https://github.com/pandadolphin/never-sleep-ubuntu/commits/main
+[Unreleased]: https://github.com/feibuilds/never-sleep-ubuntu/commits/main
